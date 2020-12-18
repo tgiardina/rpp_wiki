@@ -237,15 +237,13 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
-      'process.env.CURRENT_THEME': JSON.stringify(_.defaultTo(yargs.theme, 'default'))
+      'process.env.CURRENT_THEME': JSON.stringify(_.defaultTo(yargs.theme, 'default')),
+      'process.env.VIA_URL': JSON.stringify(process.env.VIA_URL),            
+      'process.env.WIKI_URL': JSON.stringify(process.env.WIKI_URL),      
     }),
     new webpack.optimize.MinChunkSizePlugin({
       minChunkSize: 50000
     }),
-    new webpack.DefinePlugin({
-      'process.env.VIA_URL': JSON.stringify(process.env.VIA_URL),            
-      'process.env.WIKI_URL': JSON.stringify(process.env.WIKI_URL),
-    }),    
   ],
   optimization: {
     namedModules: true,

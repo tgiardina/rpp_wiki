@@ -475,7 +475,8 @@ export default {
       // this.$store.set('editor/content', newContent)
       this.processMarkers(this.cm.firstLine(), this.cm.lastLine())
       this.previewHTML = DOMPurify.sanitize(md.render(newContent), {
-        ADD_TAGS: ['foreignObject']
+        ADD_TAGS: ['foreignObject', 'iframe'],
+        ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling'],
       })
       this.$nextTick(() => {
         tabsetHelper.format()
@@ -854,9 +855,15 @@ export default {
           })
           break
         case 'BINARY':
-          this.insertAtCursor({
-            content: `[${opts.text}](${opts.path})`
-          })
+          if(opts.path.slice(-4) === ".pdf") {
+            this.insertAtCursor({
+              content: `<iframe width="800" height="600" src="${process.env.VIA_URL}/${process.env.WIKI_URL}${opts.path}" />`
+            })                        
+          } else {
+            this.insertAtCursor({
+              content: `[${opts.text}](${opts.path})`
+            })            
+          }
           break
         case 'DIAGRAM':
           const selStartLine = this.cm.getCursor('from').line
