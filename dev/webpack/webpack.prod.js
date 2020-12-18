@@ -241,7 +241,11 @@ module.exports = {
     }),
     new webpack.optimize.MinChunkSizePlugin({
       minChunkSize: 50000
-    })
+    }),
+    new webpack.DefinePlugin({
+      'process.env.VIA_URL': JSON.stringify(process.env.VIA_URL),            
+      'process.env.WIKI_URL': JSON.stringify(process.env.WIKI_URL),
+    }),    
   ],
   optimization: {
     namedModules: true,

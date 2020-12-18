@@ -223,7 +223,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.WatchIgnorePlugin([
       /node_modules/
-    ])
+    ]),
+    new webpack.DefinePlugin({
+      'process.env.VIA_URL': JSON.stringify(process.env.VIA_URL),            
+      'process.env.WIKI_URL': JSON.stringify(process.env.WIKI_URL),
+    }),    
   ],
   optimization: {
     namedModules: true,
