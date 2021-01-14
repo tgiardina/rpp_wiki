@@ -218,8 +218,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process.env.CURRENT_THEME': JSON.stringify(_.defaultTo(yargs.theme, 'default')),
-      'process.env.VIA_URL': JSON.stringify(process.env.VIA_URL),            
-      'process.env.WIKI_URL': JSON.stringify(process.env.WIKI_URL),      
+      'process.env.ANNOTATE_URL': JSON.stringify(process.env.ANNOTATE_URL),
     }),
     new WriteFilePlugin(),
     new webpack.HotModuleReplacementPlugin(),
