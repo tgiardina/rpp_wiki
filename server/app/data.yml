@@ -39,7 +39,7 @@ defaults:
     telemetry:
       clientId: ''
       isEnabled: false
-    title: Wiki.js
+    title: Responsive Policy Project
     company: ''
     contentLicense: ''
     logoUrl: https://static.requarks.io/logo/wikijs-butterfly.svg
