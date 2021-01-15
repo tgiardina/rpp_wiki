@@ -81,11 +81,6 @@ module.exports = () => {
         tokenRenewal: '14d'
       })
       _.set(WIKI.config, 'company', '')
-      _.set(WIKI.config, 'features', {
-        featurePageRatings: true,
-        featurePageComments: true,
-        featurePersonalWikis: true
-      })
       _.set(WIKI.config, 'graphEndpoint', 'https://graph.requarks.io')
       _.set(WIKI.config, 'host', req.body.siteUrl)
       _.set(WIKI.config, 'lang', {
@@ -131,7 +126,6 @@ module.exports = () => {
         injectHead: '',
         injectBody: ''
       })
-      _.set(WIKI.config, 'title', 'Wiki.js')
 
       // Init Telemetry
       WIKI.kernel.initTelemetry()
