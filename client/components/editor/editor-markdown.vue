@@ -857,7 +857,7 @@ export default {
         case 'BINARY':
           if(opts.path.slice(-4) === ".pdf") {
             this.insertAtCursor({
-              content: `<iframe width="800" height="600" src="${process.env.ANNOTATE_URL}?file=/${opts.path}" />`
+              content: `<iframe style="width:100%" height="600" src="${process.env.ANNOTATE_URL}?file=${opts.path}" />`
             })                        
           } else {
             this.insertAtCursor({
