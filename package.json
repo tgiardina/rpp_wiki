@@ -5,7 +5,7 @@
   "description": "A modern, lightweight and powerful wiki app built on NodeJS, Git and Markdown",
   "main": "wiki.js",
   "scripts": {
-    "start": "node server",
+    "start": "NODE_ENV=production node server",
     "dev": "node dev --verbose",
     "build": "webpack --profile --config dev/webpack/webpack.prod.js",
     "watch": "webpack --config dev/webpack/webpack.dev.js",
