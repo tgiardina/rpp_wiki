@@ -62,9 +62,9 @@ defaults:
       tokenExpiration: '30m'
       tokenRenewal: '14d'
     features:
-      featurePageRatings: true
-      featurePageComments: true
-      featurePersonalWikis: true
+      featurePageRatings: false
+      featurePageComments: false
+      featurePersonalWikis: false
     security:
       securityOpenRedirect: true
       securityIframe: false
