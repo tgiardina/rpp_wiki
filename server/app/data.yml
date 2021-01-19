@@ -48,7 +48,7 @@ defaults:
       secure: true
       verifySSL: true
     nav:
-      mode: 'STATIC'
+      mode: 'TREE'
     theming:
       theme: 'default'
       iconset: 'md'
