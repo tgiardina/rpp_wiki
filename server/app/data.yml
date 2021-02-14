@@ -50,9 +50,12 @@ defaults:
     nav:
       mode: 'TREE'
     theming:
-      theme: 'default'
+      theme: 'rpp'
       iconset: 'md'
       darkMode: false
+      injectCSS: ''
+      injectHead: ''
+      injectBody: ''      
     auth:
       autoLogin: false
       enforce2FA: false

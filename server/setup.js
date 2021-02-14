@@ -118,14 +118,6 @@ module.exports = () => {
         isEnabled: req.body.telemetry === true,
         clientId: uuid()
       })
-      _.set(WIKI.config, 'theming', {
-        theme: 'default',
-        darkMode: false,
-        iconset: 'mdi',
-        injectCSS: '',
-        injectHead: '',
-        injectBody: ''
-      })
 
       // Init Telemetry
       WIKI.kernel.initTelemetry()
