@@ -23,6 +23,6 @@ props:
   allowIFrames:
     type: Boolean
     title: Allow iframes
-    default: true
+    default: false
     hint: iframes will not be stripped if enabled. (Not recommended)
     order: 3

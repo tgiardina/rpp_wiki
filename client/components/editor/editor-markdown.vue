@@ -475,8 +475,7 @@ export default {
       // this.$store.set('editor/content', newContent)
       this.processMarkers(this.cm.firstLine(), this.cm.lastLine())
       this.previewHTML = DOMPurify.sanitize(md.render(newContent), {
-        ADD_TAGS: ['foreignObject', 'iframe'],
-        ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling'],
+        ADD_TAGS: ['foreignObject']
       })
       this.$nextTick(() => {
         tabsetHelper.format()
@@ -857,7 +856,7 @@ export default {
         case 'BINARY':
           if(opts.path.slice(-4) === ".pdf") {
             this.insertAtCursor({
-              content: `<iframe style="width:100%" height="600" src="${process.env.ANNOTATE_URL}?file=${opts.path}"></iframe>`
+              content: `<a href="${process.env.ANNOTATE_URL}?file=${opts.path}" target="_blank">DESCRIBE ME HERE</a>`
             })                        
           } else {
             this.insertAtCursor({
