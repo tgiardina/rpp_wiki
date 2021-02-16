@@ -167,6 +167,7 @@ module.exports = () => {
         'host',
         'lang',
         'logo',
+        'logoType',
         'mail',
         'seo',
         'sessionSecret',
