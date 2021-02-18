@@ -20,9 +20,10 @@
     v-layout(row)
       v-flex(xs5, md4)
         v-toolbar.nav-header-inner(color='black', dark, flat, :class='$vuetify.rtl ? `pr-3` : `pl-3`')
-          img(height='70' src='/_assets/img/rpp-logo-white.png')
-          //- v-avatar(tile, size='34', @click='goHome')
-          //-   v-img.org-logo(:src='logoUrl')
+          img(v-if='$vuetify.breakpoint.lgAndUp' contain height='65' src='/_assets/img/rpp-logo-white.png')
+          img(v-else-if='$vuetify.breakpoint.mdAndUp' contain height='50' src='/_assets/img/rpp-logo-white.png')          
+          v-avatar(v-else tile, size='34', @click='goHome')
+            v-img.org-logo(:src='logoUrl')
           //- v-toolbar-title(:class='{ "mx-3": $vuetify.breakpoint.mdAndUp, "mx-1": $vuetify.breakpoint.smAndDown }')
           //-   span.subheading {{title}}
       v-flex(md4, v-if='$vuetify.breakpoint.mdAndUp')
