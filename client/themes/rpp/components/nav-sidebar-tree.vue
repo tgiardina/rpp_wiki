@@ -75,6 +75,7 @@
       },      
       preopenFolders() {
         const path = window.location.pathname.substring(1);
+        if(!path.length) return;
         let items = [...this.items];
         while(items.length) {
           const item = items.pop();
