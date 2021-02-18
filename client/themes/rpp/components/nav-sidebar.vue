@@ -44,37 +44,42 @@
         v-divider.my-2(v-else-if='item.k === `divider`')
         v-subheader.pl-4(v-else-if='item.k === `header`') {{ item.l }}
     //-> Browse
-    v-list.py-2(v-else-if='currentMode === `browse`', dense, :class='color', :dark='dark')
-      template(v-if='currentParent.id > 0')
-        v-list-item(v-for='(item, idx) of parents', :key='`parent-` + item.id', @click='fetchBrowseItems(item)', style='min-height: 30px;')
-          v-list-item-avatar(size='18', :style='`padding-left: ` + (idx * 8) + `px; width: auto; margin: 0 5px 0 0;`')
-            v-icon(small) mdi-folder-open
-          v-list-item-title {{ item.title }}
-        v-divider.mt-2
-        v-list-item.mt-2(v-if='currentParent.pageId > 0', :href='`/` + currentParent.path', :key='`directorypage-` + currentParent.id', :input-value='path === currentParent.path')
-          v-list-item-avatar(size='24')
-            v-icon mdi-text-box
-          v-list-item-title {{ currentParent.title }}
-        v-subheader.pl-4 {{$t('common:sidebar.currentDirectory')}}
-      template(v-for='item of currentItems')
-        v-list-item(v-if='item.isFolder', :key='`childfolder-` + item.id', @click='fetchBrowseItems(item)')
-          v-list-item-avatar(size='24')
-            v-icon mdi-folder
-          v-list-item-title {{ item.title }}
-        v-list-item(v-else, :href='`/` + item.locale + `/` + item.path', :key='`childpage-` + item.id', :input-value='path === item.path')
-          v-list-item-avatar(size='24')
-            v-icon mdi-text-box
-          v-list-item-title {{ item.title }}
+    nav-sidebar-tree
+    //- v-list.py-2(v-else-if='currentMode === `browse`', dense, :class='color', :dark='dark')
+    //-   template(v-if='currentParent.id > 0')
+    //-     v-list-item(v-for='(item, idx) of parents', :key='`parent-` + item.id', @click='fetchBrowseItems(item)', style='min-height: 30px;')
+    //-       v-list-item-avatar(size='18', :style='`padding-left: ` + (idx * 8) + `px; width: auto; margin: 0 5px 0 0;`')
+    //-         v-icon(small) mdi-folder-open
+    //-       v-list-item-title {{ item.title }}
+    //-     v-divider.mt-2
+    //-     v-list-item.mt-2(v-if='currentParent.pageId > 0', :href='`/` + currentParent.path', :key='`directorypage-` + currentParent.id', :input-value='path === currentParent.path')
+    //-       v-list-item-avatar(size='24')
+    //-         v-icon mdi-text-box
+    //-       v-list-item-title {{ currentParent.title }}
+    //-     v-subheader.pl-4 {{$t('common:sidebar.currentDirectory')}}
+    //-   template(v-for='item of currentItems')
+    //-     v-list-item(v-if='item.isFolder', :key='`childfolder-` + item.id', @click='fetchBrowseItems(item)')
+    //-       v-list-item-avatar(size='24')
+    //-         v-icon mdi-folder
+    //-       v-list-item-title {{ item.title }}
+    //-     v-list-item(v-else, :href='`/` + item.locale + `/` + item.path', :key='`childpage-` + item.id', :input-value='path === item.path')
+    //-       v-list-item-avatar(size='24')
+    //-         v-icon mdi-text-box
+    //-       v-list-item-title {{ item.title }}
 </template>
 
 <script>
 import _ from 'lodash'
 import gql from 'graphql-tag'
+import NavSidebarTree from './nav-sidebar-tree.vue'
 import { get } from 'vuex-pathify'
 
 /* global siteLangs */
 
 export default {
+  components: {
+    NavSidebarTree,
+  },    
   props: {
     color: {
       type: String,
