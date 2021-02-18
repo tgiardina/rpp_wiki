@@ -1,6 +1,6 @@
 <template lang="pug">
     v-container
-      v-treeview(open-on-click, :items="items", :open.sync='open', :expand-icon='""')
+      v-treeview(open-on-click, dense, :items="items", :open.sync='open', :expand-icon='""')
         template(v-slot:prepend="{ item, open }")
           v-icon(v-if="item.isFolder && open") mdi-folder-open
           v-icon(v-else-if="item.isFolder") mdi-folder    
@@ -74,7 +74,9 @@
         this.items.push(...roots);   
       },      
       preopenFolders() {
-        const path = window.location.pathname.substring(1);
+        const path = window.location.pathname.substring(0,4) === "/en/"
+          ? window.location.pathname.substring(4)
+          : window.location.pathname.substring(1)
         if(!path.length) return;
         let items = [...this.items];
         while(items.length) {
